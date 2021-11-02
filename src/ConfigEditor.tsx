@@ -18,7 +18,7 @@ export const ConfigEditor = (props: Props) => {
     options.jsonData.cacheTimeout = 60;
   }
   if (typeof options.jsonData.imageURL === 'undefined') {
-    options.jsonData.imageURL = 'https://symbols.getvecta.com/stencil_95/73_servicenow-icon.1fd2eb4ac9.png';
+    options.jsonData.imageURL = '/images/now-agent-icon.png';
   }
 
   console.log('config opitons: ', options);

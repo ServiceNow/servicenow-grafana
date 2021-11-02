@@ -9,6 +9,7 @@ import {
   SelectResource,
   SelectMetric,
   SelectMetricAnomaly,
+  SelectMetricLightstep,
   InputSysparam,
   SelectAlertType,
   SelectAlertState,
@@ -154,6 +155,11 @@ export const SplitQueryEditor = ({ query, onChange, datasource }: Props) => {
           <SelectMetricAnomaly
             options={metricAnomalyOptions}
             value={q.selectedMetricAnomalyList}
+            updateQuery={updateQuery}
+          />
+          <SelectMetricLightstep
+            options={metricAnomalyOptions}
+            value={q.selectedMetricLightstepList}
             updateQuery={updateQuery}
           />
           <InputSysparam updateQuery={updateQuery} defaultValue={q.sysparam_query} />

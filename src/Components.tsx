@@ -156,6 +156,24 @@ export const SelectMetricAnomaly = ({ options, value, updateQuery }) => {
     </>
   );
 };
+export const SelectMetricLightstep = ({ options, value, updateQuery }) => {
+  return (
+    <>
+      <InlineFieldRow>
+        <InlineField label="From Lightstep" labelWidth={20}>
+          <Select
+            width={20}
+            options={options}
+            value={value}
+            defaultValue={value}
+            isClearable={true}
+            onChange={(v) => updateQuery('selectedMetricLightstepList', v)}
+          />
+        </InlineField>
+      </InlineFieldRow>
+    </>
+  );
+};
 
 export const InputSysparam = ({ updateQuery, defaultValue }) => {
   return (

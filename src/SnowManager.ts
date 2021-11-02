@@ -108,12 +108,14 @@ export class SNOWManager {
       console.log(options.scopedVars);
     }
     let anomaly = false;
+    let ls = false;
     let sourceTarget = '';
     let resourceNameArray: any[] = [];
     let resourceName = '';
     let metricNameArray: any[] = [];
     let metricName = '';
     let metricAnomaly = '';
+    let useLightstep = '';
     var sysparam = '';
     if (typeof target.selectedSourceList !== 'undefined') {
       var sourceArray: any[] = [];
@@ -146,6 +148,12 @@ export class SNOWManager {
         anomaly = true;
       }
     }
+    if (typeof target.selectedMetricLightstepList !== 'undefined') {
+      useLightstep = utils.replaceTargetUsingTemplVars(target.selectedMetricLightstepList.value, options.scopedVars);
+      if (useLightstep === 'true') {
+        ls = true;
+      }
+    }
     if (typeof target.sysparam_query !== 'undefined') {
       sysparam = utils.replaceTargetUsingTemplVarsCSV(target.sysparam_query, options.scopedVars);
     }
@@ -169,6 +177,8 @@ export class SNOWManager {
     }
     if (anomaly === true) {
       metricURL = this.apiPath + '/v1/query/anomaly_metrics?startTime=' + timeFrom + '&endTime=' + timeTo;
+    } else if (ls === true) {
+      metricURL = metricURL + '&ls=true';
     }
     if (utils.debugLevel() === 1) {
       console.log('source after replace');

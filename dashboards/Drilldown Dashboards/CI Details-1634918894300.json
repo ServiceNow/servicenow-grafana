@@ -2665,6 +2665,11 @@
                 "label": "false",
                 "value": "false"
               },
+              "selectedMetricLightstepList": {
+                "description": "",
+                "label": "false",
+                "value": "false"
+              },
               "selectedMetricNameList": {
                 "label": "$allMetrics",
                 "value": "$allMetrics"

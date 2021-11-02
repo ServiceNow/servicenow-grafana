@@ -3,6 +3,7 @@ import { DataQuery, DataSourceJsonData, SelectableValue } from '@grafana/data';
 export interface PluginQuery extends DataQuery {
   sysparam_query: string;
   metricAnomaly: string;
+  useLightste: string;
   topology_parent_depth: string;
   topology_child_depth: string;
   topology_namespaces: string;
@@ -33,6 +34,7 @@ export interface PluginQuery extends DataQuery {
   selectedMetricTypeList: SelectableValue<string>;
   selectedMetricNameList: SelectableValue<string>;
   selectedMetricAnomalyList: SelectableValue<string>;
+  selectedMetricLightstepList: SelectableValue<string>;
   selectedAlertTypeList: SelectableValue<string>;
   selectedAlertStateList: SelectableValue<string>;
   selectedChangeTypeList: SelectableValue<string>;
