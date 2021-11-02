@@ -169,8 +169,8 @@ export class SNOWManager {
       '","metricName":"' +
       metricName +
       '","sysparm_query":"' +
-      sysparam +
-      '"}]}';
+      sysparam;
+
     let metricURL = this.apiPath + '/v1/query/single_metric?startTime=' + timeFrom + '&endTime=' + timeTo;
     if (metricName === '*') {
       metricURL = this.apiPath + '/v1/query/all_metrics?startTime=' + timeFrom + '&endTime=' + timeTo;
@@ -179,7 +179,9 @@ export class SNOWManager {
       metricURL = this.apiPath + '/v1/query/anomaly_metrics?startTime=' + timeFrom + '&endTime=' + timeTo;
     } else if (ls === true) {
       metricURL = metricURL + '&ls=true';
+      bodyData = bodyData + '","ls":"true';
     }
+    bodyData = bodyData + '"}]}';
     if (utils.debugLevel() === 1) {
       console.log('source after replace');
       console.log(metricURL);
